@@ -43,7 +43,7 @@ var planetModel = mongoose.model('planets', dataSchema);
 app.post('/planet',   function(req, res) {
    // console.log("Received Planet ID " + req.body.id)
     planetModel.findOne({
-        id: req.body.id
+        id: { $eq: req.body.id }
     }, function(err, planetData) {
         if (err) {
             alert("Ooops, We only have 9 planets and a sun. Select a number from 0 - 9")
